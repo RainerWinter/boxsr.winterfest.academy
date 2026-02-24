@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Box – WINTERFEST Leadership Academy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+  :root {
+    --blue:        #1a2e4a;
+    --accent:      #c9a84c;
+    --accent-light:#e8c96d;
+    --gray-light:  #f4f6f9;
+    --text-body:   #3d5166;
+    --white:       #ffffff;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; color:var(--blue); background:var(--white); line-height:1.65; overflow-x:hidden; }
+
+  /* ═══════════════ HERO ═══════════════ */
+  .hero {
+    background: linear-gradient(150deg, #0f1f33 0%, #1a2e4a 55%, #162540 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse 70% 60% at 65% 50%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-badge {
+    font-size:11px; font-weight:600; letter-spacing:3.5px;
+    text-transform:uppercase; color:var(--accent);
+    margin-bottom:40px; opacity:.9;
+    width:100%; max-width:1100px; text-align:center;
+    position:relative; z-index:2;
+  }
+  /* Two-column layout */
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 72px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-text { flex: 1 1 460px; text-align: left; }
+  .hero h1 {
+    font-size: clamp(38px, 5.5vw, 72px);
+    font-weight: 900; color: var(--white);
+    line-height: 1.05; margin-bottom: 28px; letter-spacing: -2.5px;
+  }
+  .hero h1 em { color:var(--accent); font-style:normal; }
+  .hero-sub {
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: rgba(255,255,255,0.65); margin-bottom: 44px;
+    font-weight: 400; line-height: 1.7;
+  }
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--blue); font-weight: 700; font-size: 15px;
+    padding: 17px 42px; border-radius: 4px; text-decoration: none;
+    letter-spacing: .3px; transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 28px rgba(201,168,76,.40);
+  }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(201,168,76,.55); }
+  /* Box-Bild – gross und prominent */
+  .hero-img-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-img {
+  width: clamp(200px, 22vw, 320px);
+  height: auto;
+  filter: drop-shadow(-8px 24px 40px rgba(0,0,0,0.65))
+          drop-shadow(4px 8px 16px rgba(0,0,0,0.40));
+  transform: perspective(800px) rotateY(-8deg) rotateX(3deg);
+  transition: transform 0.4s ease;
+}
+.hero-img:hover {
+  transform: perspective(800px) rotateY(-4deg) rotateX(1deg) scale(1.03);
+}
+  .hero-scroll {
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    color:rgba(255,255,255,.25); font-size:11px; letter-spacing:2.5px;
+    text-transform:uppercase; z-index:2;
+  }
+/* ═══════════════ BRIDGE ═══════════════ */
+.bridge {
+  background: #0f1f33;
+  padding: 52px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.bridge-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.bridge-text {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.bridge-cta {
+  font-size: 17px;
+  color: rgba(255,255,255,0.60);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--blue);
+}
+  
+  /* ═══════════════ STORY ═══════════════ */
+  .story { background:var(--white); padding:96px 24px; }
+  .story-inner { max-width:720px; margin:0 auto; }
+  .section-label {
+    font-size:11px; font-weight:600; letter-spacing:3.5px;
+    text-transform:uppercase; color:var(--accent);
+    margin-bottom:20px; display:block;
+  }
+  .story h2 { font-size:clamp(28px,4vw,42px); font-weight:800; line-height:1.2; letter-spacing:-1px; margin-bottom:36px; }
+  .story p { font-size:18px; color:var(--text-body); margin-bottom:24px; line-height:1.75; }
+  .story p strong { color:var(--blue); font-weight:700; }
+  .story .quote {
+    border-left:3px solid var(--accent); padding:20px 28px; margin:40px 0;
+    background:var(--gray-light); border-radius:0 4px 4px 0;
+    font-size:19px; font-style:italic; color:var(--blue); line-height:1.6;
+  }
+
+  /* ═══════════════ KOSTEN ═══════════════ */
+  .kosten { background:var(--gray-light); padding:96px 24px; }
+  .kosten-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .kosten h2 { font-size:clamp(26px,3.5vw,40px); font-weight:800; line-height:1.2; letter-spacing:-1px; margin-bottom:28px; }
+  .kosten p { font-size:17px; color:var(--text-body); margin-bottom:20px; line-height:1.75; }
+  .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .stat-card { background:var(--white); border-radius:6px; padding:28px 24px; text-align:center; box-shadow:0 2px 16px rgba(26,46,74,.07); border-top:3px solid var(--accent); }
+  .stat-card .num { font-size:38px; font-weight:900; color:var(--blue); line-height:1; margin-bottom:8px; }
+  .stat-card .label { font-size:13px; color:var(--text-body); line-height:1.4; }
+.stat-card .source { font-size:10px; color:#a0b0c0; margin-top:10px; letter-spacing:.3px; }
+
+  /* ═══════════════ PROGRAMM ═══════════════ */
+  .programm { background:var(--white); padding:96px 24px; }
+  .programm-inner { max-width:960px; margin:0 auto; text-align:center; }
+  .programm h2 { font-size:clamp(28px,4vw,44px); font-weight:800; line-height:1.15; letter-spacing:-1px; margin-bottom:16px; }
+  .programm-sub { font-size:18px; color:var(--text-body); max-width:580px; margin:0 auto 56px; line-height:1.7; }
+  .module-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; text-align:left; margin-bottom:52px; }
+  .module-card { background:var(--gray-light); border-radius:6px; padding:28px 24px; border-left:3px solid var(--accent); }
+  .module-card .num { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block; }
+  .module-card h3 { font-size:16px; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .module-card p { font-size:14px; color:var(--text-body); line-height:1.6; }
+
+  /* ═══════════════ RAINER ═══════════════ */
+  .rainer { background:linear-gradient(150deg,#0f1f33 0%,var(--blue) 100%); padding:96px 24px; color:var(--white); }
+  .rainer-inner { max-width:800px; margin:0 auto; text-align:center; }
+  .rainer h2 { font-size:clamp(26px,3.5vw,38px); font-weight:800; line-height:1.2; letter-spacing:-1px; margin-bottom:24px; }
+  .rainer p { font-size:17px; color:rgba(255,255,255,.72); margin-bottom:20px; line-height:1.75; }
+  .rainer p strong { color:var(--white); font-weight:700; }
+  .rainer-facts { display:flex; justify-content:center; gap:40px; margin:44px 0 52px; flex-wrap:wrap; }
+  .rainer-fact .val { font-size:36px; font-weight:900; color:var(--accent); display:block; }
+  .rainer-fact .desc { font-size:13px; color:rgba(255,255,255,.55); letter-spacing:.3px; }
+
+  /* ═══════════════ CTA ═══════════════ */
+  .cta { background:var(--white); padding:96px 24px; text-align:center; }
+  .cta-inner { max-width:660px; margin:0 auto; }
+  .cta h2 { font-size:clamp(26px,4vw,44px); font-weight:900; line-height:1.12; letter-spacing:-1.5px; margin-bottom:24px; }
+  .cta h2 em { color:var(--accent); font-style:normal; }
+  .cta p { font-size:18px; color:var(--text-body); margin-bottom:12px; line-height:1.7; }
+  .cta .fine { font-size:14px; color:#8fa3b8; margin-top:20px; }
+
+  /* ═══════════════ FOOTER ═══════════════ */
+  footer { background:#0a1828; padding:36px 24px; text-align:center; color:rgba(255,255,255,.35); font-size:13px; }
+  footer a { color:rgba(255,255,255,.45); text-decoration:none; }
+  footer a:hover { color:var(--accent); }
+  footer .footer-links { margin-top:10px; display:flex; gap:24px; justify-content:center; flex-wrap:wrap; }
+
+  /* ═══════════════ RESPONSIVE ═══════════════ */
+  @media (max-width:900px) {
+    .hero-inner { flex-direction:column-reverse; text-align:center; gap:40px; }
+    .hero-text { text-align:center; flex:none; }
+    .hero-img { width: clamp(200px, 55vw, 300px); }
+  }
+  @media (max-width:768px) {
+    .kosten-inner { grid-template-columns:1fr; }
+    .module-grid { grid-template-columns:1fr; }
+    .rainer-facts { gap:28px; }
+    .stat-grid { grid-template-columns:1fr 1fr; }
+    footer .footer-links { flex-direction:column; gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-badge">WINTERFEST Leadership Academy</p>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Sie halten die Box.<br>Sie sehen den Dollar.<br><em>Und kommen nicht ran.</em></h1>
+      <p class="hero-sub">
+        Das ist kein Trick. Das ist F&uuml;hrung.<br>
+        Genau das passiert t&auml;glich in Ihrem Unternehmen.
+      </p>
+      <a class="btn" href="https://zeeg.me/winterfest/boxenstopp" target="_blank">
+        Jetzt Gespr&auml;ch buchen &ndash; kostenlos &amp; unverbindlich
+      </a>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="boxx.png" alt="Die Holzbox &ndash; WINTERFEST Leadership Academy" class="hero-img">
+    </div>
+  </div>
+  <p class="hero-scroll">&#x2193; &nbsp; Weiterlesen</p>
+</section>
+
+  <!-- BRIDGE -->
+<section class="bridge">
+  <div class="bridge-inner">
+    <p class="bridge-text">
+      Sie bekommen die Box nicht auf?
+    </p>
+    <p class="bridge-cta">
+      Rufen Sie mich an. Wir besprechen, wie wir gemeinsam nicht nur das Potenzial 
+      in der Box heben &ndash; sondern auch das in Ihren F&uuml;hrungskr&auml;ften.
+    </p>
+    <a class="btn btn-outline" href="https://zeeg.me/winterfest/boxenstopp" target="_blank">
+      Boxenstopp buchen
+    </a>
+  </div>
+</section>
+  
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <span class="section-label">Die Analogie</span>
+    <h2>Potenzial sehen ist einfach.<br>Es zu heben, ist die Kunst.</h2>
+    <p>
+      Vor Ihnen liegt eine kleine Holzbox. Drin: ein echter US-Dollar.
+      Die Herausforderung: Wie kommen Sie dran &ndash; ohne die Box kaputtzumachen?
+    </p>
+    <p>
+      Die meisten probieren es mit Kraft. Andere suchen nach einem Knopf.
+      Wieder andere legen die Box weg und sagen: &ldquo;Ist halt so.&rdquo;
+    </p>
+    <p>
+      <strong>Läuft in Ihrem Unternehmen l&auml;uft gerade dasselbe?</strong>
+      Sie sehen Ihre Leute. Sie sehen, was in ihnen steckt.
+      Aber zwischen dem Potenzial und der tats&auml;chlichen Leistung liegt eine Box
+      &ndash; und Sie wissen nicht genau, wie man sie &ouml;ffnet. Nicht ohne etwas zu besch&auml;digen.
+    </p>
+    <div class="quote">
+      &ldquo;Ich hab das Gef&uuml;hl, ich red mit denen &ndash; aber es kommt nichts an.&rdquo;<br>
+      Das ist kein Kommunikationsproblem. Das ist ein F&uuml;hrungsproblem.
+    </div>
+    <p>
+      Kein Draufhauen. Kein Zurechtdrehen. Sondern kluges &Ouml;ffnen &ndash; mit Gef&uuml;hl
+      f&uuml;r das, was Menschen stark macht. Und daf&uuml;r, was sie blockiert.
+    </p>
+    <p>
+      Genau das lernen F&uuml;hrungskr&auml;fte in <strong>12Leadership</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- KOSTEN -->
+<section class="kosten">
+  <div class="kosten-inner">
+    <div>
+      <span class="section-label">Was schlechte F&uuml;hrung kostet</span>
+      <h2>F&uuml;hrungsfehler sind keine weichen Faktoren.</h2>
+      <p>
+        Eine F&uuml;hrungskraft, die nicht f&uuml;hrt &ndash; oder falsch f&uuml;hrt &ndash; kostet.
+        Konkret. Jeden Monat. In Form von Fehlzeiten, Fluktuation,
+        verpassten Entscheidungen und Mitarbeitern, die innerlich l&auml;ngst
+        gek&uuml;ndigt haben.
+      </p>
+      <p>
+        <strong>Ein verlorener Mitarbeiter kostet im Schnitt 6 bis 9 Monatsgeh&auml;lter.</strong>
+        Recruiting, Einarbeitung, Produktivit&auml;tsverlust &ndash; nicht mitgerechnet.
+      </p>
+      <p>
+        Gute F&uuml;hrung ist keine K&uuml;r. Sie ist die g&uuml;nstigste
+        Investition, die Sie machen k&ouml;nnen.
+      </p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="num">70%</div>
+        <div class="label">der Mitarbeiter k&uuml;ndigen wegen ihrer F&uuml;hrungskraft &ndash; nicht wegen des Jobs</div>
+        <div class="source">Quelle: Gallup Engagement Index</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">6&ndash;9&times;</div>
+        <div class="label">Monatsgehalt kostet durchschnittlich ein Mitarbeiterverlust</div>
+        <div class="source">Quelle: SHRM</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">34%</div>
+        <div class="label">der Arbeitnehmer in D sind aktiv unengagiert &ndash; Folge schlechter F&uuml;hrung</div>
+        <div class="source">Quelle: Gallup Engagement Index</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">135 Mrd.&nbsp;&euro;</div>
+        <div class="label">Kosten durch innere K&uuml;ndigung j&auml;hrlich in Deutschland</div>
+        <div class="source">Quelle: Gallup Engagement Index 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMM -->
+<section class="programm">
+  <div class="programm-inner">
+    <span class="section-label">Das Programm</span>
+    <h2>12Leadership.<br>Ein Jahr. Echte Ver&auml;nderung.</h2>
+    <p class="programm-sub">
+      Kein Chichi. Kein Coaching-Blabla. Zw&ouml;lf Monate Pr&auml;senztraining
+      f&uuml;r F&uuml;hrungskr&auml;fte im Mittelstand, die es ernst meinen.
+    </p>
+    <div class="module-grid">
+      <div class="module-card">
+        <span class="num">Haltung</span>
+        <h3>Wer bin ich als F&uuml;hrungskraft?</h3>
+        <p>Klarheit &uuml;ber die eigene Rolle, Werte und Wirkung auf andere &ndash; bevor man andere entwickeln kann.</p>
+      </div>
+      <div class="module-card">
+        <span class="num">Klarheit</span>
+        <h3>F&uuml;hren ohne R&auml;tselraten.</h3>
+        <p>Erwartungen setzen, Gespr&auml;che f&uuml;hren, Feedback geben &ndash; so dass es wirklich ankommt.</p>
+      </div>
+      <div class="module-card">
+        <span class="num">Wirksamkeit</span>
+        <h3>Ergebnisse durch Menschen.</h3>
+        <p>Teams entwickeln, Potenzial heben, Verantwortung &uuml;bergeben &ndash; ohne den Laden zu verlieren.</p>
+      </div>
+      <div class="module-card">
+        <span class="num">Resilienz</span>
+        <h3>F&uuml;hren, wenn es schwierig wird.</h3>
+        <p>Konflikte, Krisen, schwierige Gespr&auml;che &ndash; und danach trotzdem noch ansprechbar sein.</p>
+      </div>
+      <div class="module-card">
+        <span class="num">Praxis</span>
+        <h3>Was morgen fr&uuml;h anders ist.</h3>
+        <p>Kein Konzept, das im Seminarordner verstaubt. Jedes Modul endet mit konkreten n&auml;chsten Schritten.</p>
+      </div>
+      <div class="module-card">
+        <span class="num">Gemeinschaft</span>
+        <h3>F&uuml;hrungskr&auml;fte unter sich.</h3>
+        <p>Eine Gruppe gleichgesinnter Entscheider aus dem Mittelstand &ndash; die sich gegenseitig weiterbringen.</p>
+      </div>
+    </div>
+    <a class="btn" href="https://zeeg.me/winterfest/boxenstopp" target="_blank">
+      Erstgespr&auml;ch vereinbaren
+    </a>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL AUTO-SLIDER ===== -->
+<section class="testimonial-slider-section">
+  <div class="ts-wrapper">
+    <div class="ts-track" id="tsTrack">
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Diese Schulung ist das mit Abstand Wertvollste, was ich in meiner beruflichen Laufbahn getan habe."</p>
+        <span class="ts-name">Götz Cammans</span>
+        <span class="ts-role">ehem. Operativer Gesamtleiter, AMS Marketing GmbH<br>(heute: Leiter IT-Projekte, Comp-Pro Systemhaus GmbH)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Rainer schafft es, einen auf eine Weise zu fordern und zu fördern, dass man nicht nur als Führungskraft, sondern auch als Mensch wächst."</p>
+        <span class="ts-name">Birgit Henschel</span>
+        <span class="ts-role">ehem. Leiterin QM, AMS Marketing GmbH<br>(heute: Management- und Risikobeauftragte, Stadtwerke München GmbH)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Wir kennen inzwischen auch andere Anbieter solcher Trainings. Bisher sind wir treu geblieben – und das sagt eigentlich alles."</p>
+        <span class="ts-name">Andreas Ausfelder</span>
+        <span class="ts-role">ehem. Prokurist, Firmengruppe Förster + Sennewald<br>(heute: Geschäftsführer, F+S Förster + Sennewald Ingenieurgesellschaft mbH)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Führung wurde hier nicht theoretisch vermittelt, sondern konsequent im Arbeitsalltag verankert."</p>
+        <span class="ts-name">Pascal Jaensch</span>
+        <span class="ts-role">ehem. Teamlead Data and Security Protection, Blu Systems GmbH<br>(heute: Big-Data-Projektmanager, SVA System Vertrieb Alexander GmbH)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Ich treffe Entscheidungen definitiv bewusster und kommuniziere klarer – insgesamt fühle ich mich sicherer in meiner Rolle und gleichzeitig entspannter."</p>
+        <span class="ts-name">Anja Faltenbacher</span>
+        <span class="ts-role">ehem. Beratende Ingenieurin, Firmengruppe Förster + Sennewald<br>(heute: Bereichsleiterin Ingenieurbau, F+S Förster + Sennewald Ingenieurgesellschaft mbH)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Nach jeder Kurseinheit fühlte ich mich gestärkt und inspiriert, und dies hat sich unmittelbar auf mein Team und meine Arbeit ausgewirkt."</p>
+        <span class="ts-name">Derya Akkaya</span>
+        <span class="ts-role">ehem. Head of Accounting, BMW Automag GmbH<br>(heute: Business Finance Consultant – Interim Management Finance, selbständig)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Rückblickend bin ich überzeugt: Ohne das Training wäre ich heute wahrscheinlich nicht selbständig."</p>
+        <span class="ts-name">Manuel Sandler</span>
+        <span class="ts-role">ehem. Partner, CYRES Consulting<br>(heute: Manuel Sandler Consulting, freiberuflich)</span>
+      </div>
+
+      <div class="ts-slide">
+        <p class="ts-quote">„Mir wurde klar, dass kleine Veränderungen in meiner Kommunikation viel bewirken können – und dass ich nicht alles selbst lösen muss."</p>
+        <span class="ts-name">Alexander Moll</span>
+        <span class="ts-role">ehem. Bereichsleiter Netzabrechnung / MSB, Stadtwerke Erding</span>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="ts-dots" id="tsDots"></div>
+  </div>
+</section>
+
+<style>
+/* ---- SLIDER SECTION ---- */
+.testimonial-slider-section {
+  background: #0D1B2A;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.ts-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---- TRACK (overflow hidden) ---- */
+.ts-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ---- SINGLE SLIDE ---- */
+.ts-slide {
+  min-width: 100%;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ts-quote {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.7;
+  color: #F0EAD6;
+  font-style: italic;
+  margin: 0 0 32px 0;
+  position: relative;
+}
+
+.ts-quote::before {
+  content: "\201E";
+  font-size: 5rem;
+  color: #C9A84C;
+  line-height: 0;
+  vertical-align: -0.55em;
+  margin-right: 4px;
+  font-style: normal;
+}
+
+.ts-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #C9A84C;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ts-role {
+  display: block;
+  font-size: 0.82rem;
+  color: #8A9BB0;
+  line-height: 1.5;
+}
+
+/* ---- DOTS ---- */
+.ts-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.ts-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2E4057;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.ts-dot.active {
+  background: #C9A84C;
+  transform: scale(1.35);
+}
+</style>
+
+<script>
+(function () {
+  const track  = document.getElementById('tsTrack');
+  const dotsEl = document.getElementById('tsDots');
+  const slides = track.querySelectorAll('.ts-slide');
+  let current  = 0;
+  let timer;
+
+  // Build dots
+  slides.forEach(function (_, i) {
+    const btn = document.createElement('button');
+    btn.className = 'ts-dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+    btn.addEventListener('click', function () { goTo(i); resetTimer(); });
+    dotsEl.appendChild(btn);
+  });
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.ts-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function next() { goTo(current + 1); }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, 5000);
+  }
+
+  // Pause on hover
+  track.addEventListener('mouseenter', function () { clearInterval(timer); });
+  track.addEventListener('mouseleave', resetTimer);
+
+  // Touch / swipe support
+  var startX = 0;
+  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); resetTimer(); }
+  }, { passive: true });
+
+  resetTimer();
+})();
+</script>
+<!-- ===== END TESTIMONIAL SLIDER ===== -->
+
+<!-- RAINER -->
+<section class="rainer">
+  <div class="rainer-inner">
+    <span class="section-label" style="color:var(--accent)">Wer dahintersteckt</span>
+    <h2>Rainer Winter.<br>Kein Theoretiker.</h2>
+    <p>
+      Ich arbeite seit &uuml;ber 10 Jahren mit F&uuml;hrungskr&auml;ften in technologiegetriebenen,
+      mittelst&auml;ndischen Unternehmen. Ich kenne die Realit&auml;t zwischen Auftragsdruck,
+      Fachkr&auml;ftemangel und dem Teamgespr&auml;ch, das schon zu lange aufgeschoben wird.
+    </p>
+    <p>
+      <strong>Mein Ansatz:</strong> Klar, direkt, ohne Umwege. Ich sage Ihnen, was ich sehe.
+      Ich arbeite mit Ihnen an dem, was z&auml;hlt &ndash; nicht an dem, was gut klingt.
+      Und ich bleibe dran, auch wenn es unbequem wird.
+    </p>
+    <div class="rainer-facts">
+      <div class="rainer-fact">
+        <span class="val">10+</span>
+        <span class="desc">Jahre im Mittelstand</span>
+      </div>
+      <div class="rainer-fact">
+        <span class="val">12</span>
+        <span class="desc">Monate echte Entwicklung</span>
+      </div>
+      <div class="rainer-fact">
+        <span class="val">KMU</span>
+        <span class="desc">Fokus &ndash; kein Konzern-Blabla</span>
+      </div>
+    </div>
+    <a class="btn" href="https://zeeg.me/winterfest/boxenstopp" target="_blank">
+      Jetzt Gespr&auml;ch buchen
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <span class="section-label">Ihr n&auml;chster Schritt</span>
+    <h2>Wer wei&szlig;, wie man eine Box &ouml;ffnet, wei&szlig; noch lange nicht, wie man Menschen f&uuml;hrt.<br><em>Genau darum geht es jetzt.</em></h2>
+    <p>
+      30 Minuten. Kein Pitch, kein Verkaufsgespr&auml;ch.
+      Wir schauen gemeinsam, wo Sie gerade stehen &ndash; und ob 12Leadership
+      der richtige n&auml;chste Schritt f&uuml;r Sie ist.
+    </p>
+    <p>
+      Wenn es passt, reden wir &uuml;ber n&auml;chste Schritte.
+      Wenn nicht, gehen Sie mit einem klaren Blick nach Hause.
+      Beides ist okay.
+    </p>
+    <br>
+    <a class="btn" href="https://zeeg.me/winterfest/boxenstopp" target="_blank">
+      Termin buchen &ndash; Boxenstopp mit Rainer Winter
+    </a>
+    <p class="fine">Kostenlos &middot; Unverbindlich &middot; 30 Minuten &middot; Online oder Telefon</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 WINTERFEST Leadership Academy · Rainer Winter</div>
+  <div class="footer-links">
+    <a href="https://www.winterfest.academy" target="_blank">winterfest.academy</a>
+    <a href="mailto:rainer.winter@winterfest.academy">rainer.winter@winterfest.academy</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="Datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+</footer>
+
+</body>
+</html>
