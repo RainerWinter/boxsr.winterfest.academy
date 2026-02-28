@@ -143,7 +143,7 @@
     margin-bottom:20px; display:block;
   }
   .story h2 { font-size:clamp(28px,4vw,42px); font-weight:800; line-height:1.2; letter-spacing:-1px; margin-bottom:36px; }
-  .story p { font-size:18px; color:var(--text-body); margin-bottom:24px; line-height:1.75; }
+  .story p { font-size:18px; color:var(--text-); margin-bottom:24px; line-height:1.75; }
   .story p strong { color:var(--blue); font-weight:700; }
   .story .quote {
     border-left:3px solid var(--accent); padding:20px 28px; margin:40px 0;
@@ -155,7 +155,7 @@
   .kosten { background:var(--gray-light); padding:96px 24px; }
   .kosten-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
   .kosten h2 { font-size:clamp(26px,3.5vw,40px); font-weight:800; line-height:1.2; letter-spacing:-1px; margin-bottom:28px; }
-  .kosten p { font-size:17px; color:var(--text-body); margin-bottom:20px; line-height:1.75; }
+  .kosten p { font-size:17px; color:var(--text-); margin-bottom:20px; line-height:1.75; }
   .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
   .stat-card { background:var(--white); border-radius:6px; padding:28px 24px; text-align:center; box-shadow:0 2px 16px rgba(26,46,74,.07); border-top:3px solid var(--accent); }
   .stat-card .num { font-size:38px; font-weight:900; color:var(--blue); line-height:1; margin-bottom:8px; }
@@ -213,6 +213,14 @@
 </style>
 </head>
 <body>
+<div id="cookie-banner">
+  <p>Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern. 
+  Mehr dazu in unserer <a href="Datenschutz.html">Datenschutzerklärung</a>.</p>
+  <div style="display:flex; gap:10px; flex-shrink:0;">
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()">Ablehnen</button>
+  </div>
+</div>
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6K3V9VTBY"></script>
@@ -655,6 +663,23 @@
     <a href="agb.html">AGB</a>
   </div>
 </footer>
+<script>
+  (function() {
+    if (localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  })();
+
+  function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  function declineCookies() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
